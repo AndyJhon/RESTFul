@@ -33,10 +33,15 @@ public class RestfulApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		tourPackageService.createTourPackage("AB","ABBBBB");
-		tourPackageService.createTourPackage("CD","CDDDD");
-		tourPackageService.createTourPackage("EF","EFFFFF");
-		tourPackageService.createTourPackage("FG","FGGGG");
+		tourPackageService.createTourPackage("BC", "Backpack Cal");
+		tourPackageService.createTourPackage("CC", "California Calm");
+		tourPackageService.createTourPackage("CH", "California Hot springs");
+		tourPackageService.createTourPackage("CY", "Cycle California");
+		tourPackageService.createTourPackage("DS", "From Desert to Sea");
+		tourPackageService.createTourPackage("KC", "Kids California");
+		tourPackageService.createTourPackage("NW", "Nature Watch");
+		tourPackageService.createTourPackage("SC", "Snowboard Cali");
+		tourPackageService.createTourPackage("TC", "Taste of California");
 		tourPackageService.lookup().forEach(t -> System.out.println(t));
 
 		importTours().forEach(t-> tourService.createTour(

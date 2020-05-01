@@ -6,6 +6,7 @@ import com.restful.example.restful.domain.Tour;
 import com.restful.example.restful.domain.TourPackage;
 import com.restful.example.restful.repo.TourPackageRepository;
 import com.restful.example.restful.repo.TourRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.DirectoryIteratorException;
@@ -16,6 +17,7 @@ public class TourService {
     private TourRepository tourRepository;
     private TourPackageRepository tourPackageRepository;
 
+    @Autowired
     public TourService(TourPackageRepository tourPackageRepository, TourRepository tourRepository) {
         this.tourPackageRepository = tourPackageRepository;
         this.tourRepository = tourRepository;
@@ -27,10 +29,6 @@ public class TourService {
             throw new RuntimeException("Tour does not exist " + tourPackageName);
         }
         return tourRepository.save(new Tour(title, description, blurb, price, duration, bullets, keywords, tourPackage, difficulty, region));
-    }
-
-    public Iterable<Tour> lookup(){
-        return tourRepository.findAll();
     }
 
     public long total(){
